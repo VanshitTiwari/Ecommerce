@@ -1,4 +1,5 @@
 const Product = require('../models/productModel');
+const ErrorHander = require('../utils/errorhandler');
 
 
 
@@ -82,10 +83,7 @@ exports.getProductDetails = async(req,res,next)=>{
 
     if(!product){
 
-        return res.status(500).json({
-            success:false,
-            message:"Product not found"
-        });
+        return next(new ErrorHander("Product not found",404));
         
     }
 
