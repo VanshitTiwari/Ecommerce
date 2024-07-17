@@ -12,10 +12,15 @@ dotenv.config({ path: 'backend/config/.env' });
 
 // Middleware for errors
 
-app.use(errorMiddleware);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+module.exports = app;
+
+
+
+app.use('/api/v1',product);
+
+app.use(errorMiddleware);
 
 
 
@@ -26,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // app.use(express.json());
 
-app.use('/api/v1',product);
+// app.use('/api/v1',product);
 
 
 //middleware for errors
